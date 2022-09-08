@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width , initial-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <title>Be a Pirate</title>
+        <link rel="stylesheet" href="mark7.css">
+    </head>
+    <body>
+        <h2 class="banana-talk"><div>Ahoy there matey! Wanna be a pirate! Start right away!</div></h2>
+
+   <div class="middle-container">
+    <div>
+      <input class="one" id="123" type="Text" placeholder="To just jump hover on the output block"></input>
+    </div>
+    <div class="two"><button class="two" type="submit" onClick={translator()}>Jump the ship</button></div>
+    
+    <div class="three">Your translated text can be viewed below:</div>
+    <div class="four" id="456"></div>
+    </div>
+    
+
+     <footer class="about">
+      <div class="about1">About</div>
+     <div class="about2">Convert from English to Pirate speak. Shiver me timbers! I be needin' t' send 'em all to Davy Jones' locker. Arrrrr! Anyway go ahead and translate and have some fun!</div>
+     </footer>
+    
+    </body>
+    <script>
+        function translator(){
+            var inputvalue = document.getElementById("123").value;
+            var op=document.getElementById("456");
+            console.log(inputvalue);
+            
+            var str1="https://api.funtranslations.com/translate/minion.json";
+            var str2="?";
+            var str3="text=";
+            var texttobtanslated = str1+str2+str3+inputvalue;
+            fetch(texttobtanslated)
+            .then((response) => response.json())
+            .then((json)=>{console.log(json.contents.translated);
+            var output = json.contents.translated;
+            op.innerText = output;})
+            .catch(error => console.log(error));
+
+        }
+    </script>
+</html>
