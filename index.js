@@ -3,7 +3,7 @@ function translator(){
     var op=document.getElementById("456");
     console.log(inputvalue);
     
-    var str1="https://api.funtranslations.com/translate/minion.json";
+    var str1="https://api.funtranslations.com/translate/pirate.json";
     var str2="?";
     var str3="text=";
     var texttobtanslated = str1+str2+str3+inputvalue;
